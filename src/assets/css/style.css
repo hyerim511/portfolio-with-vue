@@ -1,4 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Bowlby+One&family=Open+Sans:wght@300;700&family=Permanent+Marker&family=Rock+Salt&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200");
+@import url("https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@400;800;900&family=Julius+Sans+One&family=Megrim&family=Open+Sans:wght@300;400;700;800&family=Rock+Salt&family=Rubik+Moonrocks&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -241,7 +242,7 @@ nav a:hover span {
   width: 100%;
 }
 .skill-list .skill-css {
-  width: 100%;
+  width: 90%;
 }
 .skill-list .skill-php {
   width: 60%;
@@ -306,8 +307,8 @@ nav a:hover span {
 }
 .project ul {
   display: flex;
-  -moz-column-gap: 5vw;
-       column-gap: 5vw;
+  -moz-column-gap: 3vw;
+       column-gap: 3vw;
   display: flex;
   height: 70vh;
   align-items: center;
@@ -321,17 +322,20 @@ nav a:hover span {
        column-gap: 0vh;
 }
 .project figure {
-  width: 20vw;
+  width: 22vw;
 }
 .project img {
-  border: 3px solid black;
-  height: 20vw;
+  height: 22vw;
   -o-object-fit: cover;
      object-fit: cover;
+  box-shadow: 5px 5px 30px -20px black;
+}
+.project img:hover {
+  box-shadow: 5px 5px 20px -20px black;
 }
 .project p {
   font-weight: 700;
-  font-size: 1.5em;
+  font-size: 1.3em;
 }
 
 .project-detail {

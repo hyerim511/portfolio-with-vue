@@ -1,5 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Bowlby+One&family=Open+Sans:wght@300;700&family=Permanent+Marker&family=Rock+Salt&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200");
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@400;800;900&family=Julius+Sans+One&family=Megrim&family=Open+Sans:wght@300;400;700;800&family=Rock+Salt&family=Rubik+Moonrocks&display=swap');
 
+
+// 
 // MIXIN
 
 @mixin FlexRow($colGap: 0vh) {
@@ -19,7 +22,6 @@
     align-items: center;
 }
 
-
 $font-body: 'Open Sans', sans-serif;
 $font1: 'Bodoni Moda', serif;
 $font2: 'Julius Sans One', sans-serif;
@@ -28,6 +30,7 @@ $font4: 'Rock Salt', cursive;
 $font5: 'Rubik Moonrocks', cursive;
 
 
+// 
 // COMMON VALUE
 
 * {
@@ -37,7 +40,6 @@ $font5: 'Rubik Moonrocks', cursive;
 }
 
 body {
-  // background-color: #FFEF98;
   background: linear-gradient(-45deg, #5cffd6, #FFEA7C, #ff5291);
   background-size: 200% 200%;
 	animation: gradient 15s ease infinite;
@@ -91,6 +93,8 @@ h2 {
   left: 0;
   top: 0;
 }
+
+// BACKGROUND SHAPE in top and information section
 
 .background {
   width: 50vw;
@@ -211,7 +215,8 @@ nav {
 }
 
 
-// TOP
+// 
+// TOP SECTION
 
 .top {
   padding: 5%;
@@ -248,7 +253,8 @@ nav {
 }
 
 
-// SKILL
+// 
+// SKILL SECTION
 
 .skill {
   padding-left: 20vw;
@@ -286,7 +292,7 @@ nav {
     width: 100%;
   }
   .skill-css {
-    width: 100%;
+    width: 90%;
   }
   .skill-php {
     width: 60%;
@@ -344,14 +350,15 @@ nav {
 }
 
 
-// PROJECT
+// 
+// PROJECT SECTION
 
 .project {
   padding-bottom: 10vh;
   position: relative;
 
   ul {
-    @include FlexRow(5vw);
+    @include FlexRow(3vw);
     display: flex;
     height: 70vh;
     align-items: center;
@@ -369,20 +376,26 @@ nav {
   }
 
   figure {
-    width: 20vw;
+    width: 22vw;
   }
 
   img {
-    border: 3px solid black;
-    height: 20vw;
+    height: 22vw;
     object-fit: cover;
+    box-shadow: 5px 5px 30px -20px black;
+  }
+
+  img:hover {
+    box-shadow: 5px 5px 20px -20px black;
   }
 
   p {
     font-weight: 700;
-    font-size: 1.5em;
+    font-size: 1.3em;
   }
 }
+
+// PROJECT DETAIL
 
 .project-detail {
   background-color: black;
@@ -476,7 +489,8 @@ nav {
 }
 
 
-// INFORMATION
+// 
+// INFORMATION SECTION
 
 .information {
   padding-top: 10%;
@@ -516,7 +530,7 @@ nav {
   }
 }
 
-// FORM
+// RESUME FORM
 
 .resume-form {
   width: 500px;
@@ -728,7 +742,4 @@ nav {
     right: -400px;
     bottom: -320px;
   }
-
-
-
 }

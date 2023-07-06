@@ -29,6 +29,7 @@ export default {
     InformationSection
   },
   methods: {
+    // scroll to each section
     scrollSection(name) {
             const top = this.$refs[(name)].offsetTop;
             window.scrollTo({
@@ -42,9 +43,6 @@ export default {
 </script>
 
 <style>
-
-@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200");
-@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@400;800;900&family=Julius+Sans+One&family=Megrim&family=Open+Sans:wght@300;400;700;800&family=Rock+Salt&family=Rubik+Moonrocks&display=swap');
 
 @import './assets/css/style.css';
 

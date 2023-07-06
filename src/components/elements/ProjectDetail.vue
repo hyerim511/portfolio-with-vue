@@ -1,6 +1,6 @@
 <template>
     <figure>
-        <img src="@/assets/img/project-mung.png" alt="">
+        <img src="@/assets/img/project-mung.gif" alt="">
         <figcaption>
             <h3>Project Title</h3>
             <ul>

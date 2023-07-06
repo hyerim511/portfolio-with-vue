@@ -6,7 +6,7 @@
                 <figure>
                     <img :src="require('@/assets/img/' + project.readvice)" alt="">
                     <figcaption>
-                        <p>project name</p>
+                        <!-- <p>readvice</p> -->
                     </figcaption>
                 </figure>
             </li>
@@ -14,7 +14,7 @@
                 <figure>
                     <img :src="require('@/assets/img/' + project.jewelry)" alt="">
                     <figcaption>
-                        <p>project name</p>
+                        <!-- <p>jewelrylane</p> -->
                     </figcaption>
                 </figure>
             </li>
@@ -22,7 +22,7 @@
                 <figure>
                     <img :src="require('@/assets/img/' + project.mung)" alt="">
                     <figcaption>
-                        <p>project name</p>
+                        <!-- <p>mung</p> -->
                     </figcaption>
                 </figure>
             </li>
@@ -30,7 +30,23 @@
                 <figure>
                     <img :src="require('@/assets/img/' + project.kave)" alt="">
                     <figcaption>
-                        <p>project name</p>
+                        <!-- <p>kavecon</p> -->
+                    </figcaption>
+                </figure>
+            </li>
+            <li @click="details">
+                <figure>
+                    <img :src="require('@/assets/img/' + project.cosmos)" alt="">
+                    <figcaption>
+                        <!-- <p>cosmos</p> -->
+                    </figcaption>
+                </figure>
+            </li>
+            <li @click="details">
+                <figure>
+                    <img :src="require('@/assets/img/' + project.fake)" alt="">
+                    <figcaption>
+                        <!-- <p>fakemuseum</p> -->
                     </figcaption>
                 </figure>
             </li>
@@ -60,8 +76,10 @@ export default {
             project: {
                 readvice: 'project-readvice.png',
                 jewelry: 'project-jewelry.png',
-                mung: 'project-mung.png',
+                mung: 'project-mung.gif',
                 kave: 'project-kave.png',
+                cosmos: 'project-cosmos.png',
+                fake: 'project-fake.png',
             },
         }
     },
