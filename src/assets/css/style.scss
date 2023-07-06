@@ -1,0 +1,734 @@
+@import url('https://fonts.googleapis.com/css2?family=Bowlby+One&family=Open+Sans:wght@300;700&family=Permanent+Marker&family=Rock+Salt&display=swap');
+
+// MIXIN
+
+@mixin FlexRow($colGap: 0vh) {
+    display: flex;
+    column-gap: $colGap;
+}
+ 
+@mixin FlexColumn($rowGap: 0vh) {
+    display: flex;
+    flex-direction: column;
+    row-gap: $rowGap;
+}
+
+@mixin FlexCenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+$font-body: 'Open Sans', sans-serif;
+$font1: 'Bodoni Moda', serif;
+$font2: 'Julius Sans One', sans-serif;
+$font3: 'Megrim', cursive;
+$font4: 'Rock Salt', cursive;
+$font5: 'Rubik Moonrocks', cursive;
+
+
+// COMMON VALUE
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: $font-body;
+}
+
+body {
+  // background-color: #FFEF98;
+  background: linear-gradient(-45deg, #5cffd6, #FFEA7C, #ff5291);
+  background-size: 200% 200%;
+	animation: gradient 15s ease infinite;
+  scroll-behavior: smooth;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+img {
+  width: 100%;
+}
+
+main {
+  @include FlexColumn();
+  overflow: hidden;
+}
+
+section {
+  position: relative;
+}
+
+h1 {
+  font-size: 80px;
+  line-height: 100px;
+  font-family: $font1;
+  font-weight: 900;
+}
+
+h2 {
+  font-size: 80px;
+  font-weight: 300;
+  text-transform: uppercase;
+  text-orientation: mixed;
+  writing-mode: vertical-rl;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.background {
+  width: 50vw;
+  height: 50vw;
+  background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
+  position: absolute;
+  left: 0;
+  z-index: -1;
+  border-radius: 15vw;
+  animation-name: back-shape;
+  animation-duration: 50s;
+  animation-iteration-count:infinite;
+  animation-timing-function: linear;
+}
+.background2 {
+  width: 50vw;
+  height: 50vw;
+  border: 1px solid white;
+  position: absolute;
+  right: 0;
+  z-index: -1;
+  border-radius: 15vw;
+  animation-name: back-shape;
+  animation-duration: 20s;
+  animation-iteration-count:infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes back-shape {
+  0%{border-radius: 30%;}
+  50%{border-radius: 50%;}
+  100%{border-radius: 30%;}
+}
+
+
+// BUTTON
+
+button {
+  background-color: transparent;
+  border: none;
+  position: absolute;
+  right: 15%;
+  bottom: 15%;
+  z-index: 9999;
+  cursor: pointer;
+}
+
+svg {
+  fill: currentColor;
+  height: auto;
+  max-width: 66vmin;
+  transform-origin: center;
+  width: 150%;
+  animation-name: btn-turn;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+
+  text {
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+}
+
+@keyframes btn-turn {
+  from {transform: rotate(0deg);}
+  to {transform: rotate(360deg);}
+}
+
+
+// NAVIGATION
+
+nav {
+  position: fixed;
+  right: -20px;
+  z-index: 9999;
+  
+  ul {
+    @include FlexColumn();
+    height: 100vh;
+    align-items: flex-end;
+  }
+
+  li {
+    display: flex;
+    margin-top: -10px;
+  }
+
+  a {
+    @include FlexRow(1vw);
+    align-items: center;
+    
+    p {
+      display: none;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+  
+    span {
+      width: 80px;
+      height: 80px;
+      background-color: black;
+      border-radius: 50%;
+    }
+  }
+
+  a:hover {
+    padding-right: 20px;
+
+    p {
+      display: block;
+    }
+
+    span {
+      background-color: black;
+    }
+  }
+}
+
+
+// TOP
+
+.top {
+  padding: 5%;
+  position: relative;
+  height: 75vh;
+
+  .line-name {
+
+    h1 {
+      display: inline;
+      padding-right: .5em;
+    }
+  }
+
+  .name {
+    text-decoration: underline;
+    cursor: help;
+  }
+}
+
+.blinking {
+  font-size: 5rem;
+  animation: 1s blink step-end infinite;
+}
+
+@keyframes blink {
+  from,
+  to {
+    color: transparent;
+  }
+  50% {
+    color: inherit;
+  }
+}
+
+
+// SKILL
+
+.skill {
+  padding-left: 20vw;
+  padding-bottom: 10vh;
+  height: fit-content;
+}
+
+.skill-list {
+  @include FlexColumn(5vh);
+
+  ul {
+    @include FlexColumn(18px);
+  }
+
+  li {
+    display: grid;
+    grid-template-columns: 140px auto;
+    align-items: center;
+  }
+
+  p {
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  span {
+    background: linear-gradient(90deg, black 0%, transparent 100%);
+    height: 10px;
+    border-radius: 10vw;
+    animation-name: skill-bar;
+    animation-duration: 10s;
+  }
+
+  .skill-html {
+    width: 100%;
+  }
+  .skill-css {
+    width: 100%;
+  }
+  .skill-php {
+    width: 60%;
+  }
+  .skill-vue {
+    width: 60%;
+  }
+  .skill-sql {
+    width: 50%;
+  }
+  .skill-bootstrap {
+    width: 90%;
+  }
+  .skill-wordpress {
+    width: 70%;
+  }
+  .skill-git {
+    width: 70%;
+  }
+  .skill-figma {
+    width: 90%;
+  }
+  .skill-ps {
+    width: 90%;
+  }
+  .skill-il {
+    width: 90%;
+  }
+  .skill-in {
+    width: 70%;
+  }
+  .skill-pr {
+    width: 50%;
+  }
+  .skill-ae {
+    width: 50%;
+  }
+  .skill-team {
+    width: 100%;
+  }
+  .skill-inter {
+    width: 100%;
+  }
+  .skill-manage {
+    width: 100%;
+  }
+  .skill-awsome {
+    width: 100%;
+  }
+}
+
+@keyframes skill-bar {
+  from {width: 0}
+  to {width: --width}
+}
+
+
+// PROJECT
+
+.project {
+  padding-bottom: 10vh;
+  position: relative;
+
+  ul {
+    @include FlexRow(5vw);
+    display: flex;
+    height: 70vh;
+    align-items: center;
+    padding-left: 20vw;
+    overflow: scroll;
+    padding-right: 10%;
+  }
+
+  // ul::-webkit-scrollbar-track {
+  //   background-color: red;
+  // }
+
+  li {
+    @include FlexRow();
+  }
+
+  figure {
+    width: 20vw;
+  }
+
+  img {
+    border: 3px solid black;
+    height: 20vw;
+    object-fit: cover;
+  }
+
+  p {
+    font-weight: 700;
+    font-size: 1.5em;
+  }
+}
+
+.project-detail {
+  background-color: black;
+  color: white;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  z-index: 99999;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+
+  figure {
+    width: 100%;
+    height: 100%;
+    @include FlexRow();
+  }
+
+  img {
+    width: 50%;
+    height: 100%;
+  }
+
+  figcaption {
+    width: 40%;
+    padding: 5%;
+    @include FlexColumn(4vh);
+
+    a {
+      display: flex;
+      column-gap: 10px;
+      align-items: center;
+      text-transform: uppercase;
+    }
+
+    span {
+      width: 100px;
+      height: 1px;
+      background-color: white;
+    }
+  }
+
+  h3 {
+    font-size: 4em;
+    font-weight: 300;
+    text-transform: uppercase;
+  }
+
+  ul {
+    @include FlexRow(10px);
+    padding: 0;
+    height: fit-content;
+  }
+
+  li {
+    list-style: none;
+    border: 1px solid white;
+    padding: 1% 3%;
+    border-radius: 10vw;
+    font-size: .8em;
+    opacity: .5;
+  }
+
+  button {
+    color: white;
+    right: 5%;
+    bottom: 5%;
+
+    span {
+      font-size: 6em;
+      font-weight: 100;
+    }
+  }
+}
+
+.display {
+  display: flex;
+  animation-name: detail;
+  animation-duration: 1s;
+}
+
+@keyframes detail {
+  from {
+    right: -100%;
+  }
+  to {
+    right: 0;
+  }
+}
+
+
+// INFORMATION
+
+.information {
+  padding-top: 10%;
+  padding-left: 20vw;
+  height: 70vh;
+  position: relative;
+
+  aside {
+    @include FlexColumn(10vh);
+    font-weight: 700;
+
+    div {
+      @include FlexColumn(2vh);
+    }
+  }
+
+  ul, dl, li {
+    @include FlexColumn(1vh);
+  }
+
+  a {
+    @include FlexRow(20px);
+  }
+
+  dl {
+    margin-bottom: 2vh;
+  }
+
+  dd {
+    font-weight: 400;
+  }
+  
+  .background {
+    right: 3%;
+    left: auto;
+    bottom: -20%;
+  }
+}
+
+// FORM
+
+.resume-form {
+  width: 500px;
+  height: 500px;
+  position: absolute;
+  color: white;
+  display: flex;
+  justify-content: right;
+  align-items: flex-end;
+
+  form {
+    width: 60%;
+    padding: 7%;
+    @include FlexColumn(2vh);
+  }
+
+  input {
+    padding: 2%;
+    background-color: transparent;
+    border: none;
+    color: white;
+    border-bottom: 1px solid white;
+    text-align: right;
+  }
+
+  [type=submit] {
+    border-bottom: none;
+  }
+
+  ::placeholder {
+    color: rgba(255,255,255,.5);
+  }
+}
+
+.triangle {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-color: #f2ff00 transparent transparent transparent;
+  position: absolute;
+  animation-name: triangle-ani;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+}
+
+.triangle-bg {
+  width: 500px;
+  height: 500px;
+  background-color: black;
+  position: absolute;
+}
+
+@keyframes triangle-ani {
+  from { border-width: 100px 100px 0 0; }
+  to { border-width: 500px 500px 0 0; }
+  
+}
+
+.thanks-message {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  position: absolute;
+  padding: 3%;
+  right: -250px;
+  bottom: -400px;
+  color: black;
+  z-index: 99999;
+  background-color: white;
+  @include FlexCenter();
+  box-shadow: 4px 4px 10px rgba(0,0,0,.2);
+
+  p {
+    font-size: 1.2em;
+    font-weight: 700;
+    text-align: center;
+  }
+}
+
+.thanks-message::after {
+  content: '';
+  position: absolute;
+  right: 25px;
+  bottom: 25px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 0 50px 50px;
+  border-color: transparent transparent #fff transparent;
+}
+
+.open-display {
+  display: none;
+  position: absolute;
+  right: 500px;
+  bottom: 500px;
+  z-index: 99998;
+}
+
+.open {
+  display: block;
+  animation-name: open-form;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes open-form {
+  from {
+    transform: translate(500px,500px);
+    
+  }
+  to {
+    transform: translate(0,0);
+  }
+}
+
+
+
+// 
+// MEDIA QUERY
+// MOBILE
+
+@media (max-width: 700px) {
+  h1 {
+    font-size: 60px;
+    line-height: 80px;
+  }
+
+  h2 {
+    font-size: 60px;
+    left: -10px;
+  }
+
+  .background {
+    width: 80vw;
+    height: 80vw;
+  }
+  .background2 {
+    width: 80vw;
+    height: 80vw;
+    top: 80vw;
+  }
+
+  button {
+    bottom: 10%;
+  }
+
+  nav {
+    a {
+      span {
+        width: 60px;
+        height: 60px;
+      }
+    }
+  }
+
+  .top {
+    height: 90vh;
+  }
+
+  .skill-list {
+    li {
+      font-size: .9em;
+      grid-template-columns: auto;
+    }
+  }
+
+  .project {
+    figure {
+      width: 45vw;
+    }
+
+    img {
+      height: 45vw;
+    }
+  }
+
+  .project-detail {    
+    figure {
+      flex-direction: column;
+      width: 100%;
+    }
+
+    img {
+      width: 100%;
+    }
+
+    figcaption {
+      width: 90%;
+      @include FlexColumn(2vh);
+    }
+
+    h3 {
+      font-size: 2em;
+    }
+
+    p {
+      font-size: 1em;
+      line-height: 1.5;
+    }
+  }
+
+  .information {
+    height: 80vh;
+    font-size: .9em;
+  }
+
+  .thanks-message {
+    right: -400px;
+    bottom: -320px;
+  }
+
+
+
+}
