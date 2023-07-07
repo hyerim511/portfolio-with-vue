@@ -1,24 +1,23 @@
 <template>
     <figure>
-        <img src="@/assets/img/project-mung.gif" alt="">
+        <img :src="require(`./../../assets/img/${detailProject.image}`)" :alt="detailProject.title">
         <figcaption>
-            <h3>Project Title</h3>
+            <h3>{{ detailProject.title }}</h3>
             <ul>
-                <li>PHP</li>
-                <li>MySql</li>
-                <li>SCSS</li>
-                <li>Design</li>
+                <li>{{ detailProject.field }}</li>
             </ul>
-            <p>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deserunt, dolores vitae? Perferendis quam dolore adipisci ullam quae nemo dolores sapiente recusandae fuga, earum ab laudantium voluptatem labore voluptatum ut modi!
-            </p>
-            <a href="#"><span></span>go to github</a>
+            <p>{{ detailProject.description }}</p>
+            <a :href="detailProject.url"><span></span>go to github</a>
         </figcaption>
     </figure>
 </template>
 
 <script>
+
 export default {
     name: "ProjectDetail",
+    props: {
+        detailProject: {}
+    },
 }
 </script>

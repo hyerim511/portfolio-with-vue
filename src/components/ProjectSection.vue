@@ -2,63 +2,25 @@
     <section class="project">
         <h2>Project</h2>
         <ul>
-            <li @click="details">
+            <li v-for="project in projectList" :key="project.id" @click="details(project)">
                 <figure>
-                    <img :src="require('@/assets/img/' + project.readvice)" alt="">
+                    <img :src="require('@/assets/img/' + project.image)" :alt="project.title">
                     <figcaption>
-                        <!-- <p>readvice</p> -->
-                    </figcaption>
-                </figure>
-            </li>
-            <li @click="details">
-                <figure>
-                    <img :src="require('@/assets/img/' + project.jewelry)" alt="">
-                    <figcaption>
-                        <!-- <p>jewelrylane</p> -->
-                    </figcaption>
-                </figure>
-            </li>
-            <li @click="details">
-                <figure>
-                    <img :src="require('@/assets/img/' + project.mung)" alt="">
-                    <figcaption>
-                        <!-- <p>mung</p> -->
-                    </figcaption>
-                </figure>
-            </li>
-            <li @click="details">
-                <figure>
-                    <img :src="require('@/assets/img/' + project.kave)" alt="">
-                    <figcaption>
-                        <!-- <p>kavecon</p> -->
-                    </figcaption>
-                </figure>
-            </li>
-            <li @click="details">
-                <figure>
-                    <img :src="require('@/assets/img/' + project.cosmos)" alt="">
-                    <figcaption>
-                        <!-- <p>cosmos</p> -->
-                    </figcaption>
-                </figure>
-            </li>
-            <li @click="details">
-                <figure>
-                    <img :src="require('@/assets/img/' + project.fake)" alt="">
-                    <figcaption>
-                        <!-- <p>fakemuseum</p> -->
+                        <!-- <p>{{ project.title }}</p> -->
                     </figcaption>
                 </figure>
             </li>
         </ul>
-    <section class="project-detail " :class="{ display: showDetail }">
-        <ProjectDetail />
-        <button @click="details">
-            <span class="material-symbols-outlined">
-            arrow_forward
-            </span>
-        </button>
-    </section>
+        <div v-if="showDetail">
+            <section class="project-detail " :class="{ display: showDetail }">
+                <ProjectDetail :detailProject="this.projectSelect"/>
+                <button @click="showDetail=false">
+                    <span class="material-symbols-outlined">
+                    arrow_forward
+                    </span>
+                </button>
+            </section>
+        </div>
     </section>
 </template>
 
@@ -73,20 +35,28 @@ export default {
     data() {
         return {
             showDetail: false,
-            project: {
-                readvice: 'project-readvice.png',
-                jewelry: 'project-jewelry.png',
-                mung: 'project-mung.gif',
-                kave: 'project-kave.png',
-                cosmos: 'project-cosmos.png',
-                fake: 'project-fake.png',
-            },
+            projectList: [],
+            projectSelect: {},
+            projectApi: 'http://localhost/wd6/portfolio-vue/api/project.php'
         }
     },
     methods: {
-        details() {
+        details(project) {
             this.showDetail = !this.showDetail;
-        }
+            this.projectSelect = project;
+            console.log(this.projectSelect);
+        },
+        async getProject() {
+                try {
+                    let response = await fetch(this.projectApi);
+                    this.projectList = await response.json();
+                } catch (error) {
+                    console.log(error);
+                }
+        },
+    },
+    created() {
+            this.getProject();
     }
 }
 </script>
