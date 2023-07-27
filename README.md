@@ -11,8 +11,8 @@ This site is essentially a one-page website for a personal portfolio, including 
 ## Functionalities
 
 ### Changeable Text
-![Main text function](img-readme/mainText.gif)<br />
 The main text font changes when clicking the button below, and the name is also chaged when clicking the name. 
+![Main text function](img-readme/mainText.gif)
 ```
 changeFont(){
     this.randomFont = this.font[Math.floor(Math.random() * this.font.length)];
@@ -32,8 +32,8 @@ h1 {
 ```
 
 ### Animation for Form
-![Main text function](img-readme/mainText.gif)<br />
 When clicking the resume button, the form slides up from the bottom of the site. 
+![Main text function](img-readme/form.gif)
 
 
 ### Database with API
